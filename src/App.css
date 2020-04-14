@@ -17,6 +17,19 @@
   width: 125px;
 }
 
+.dropdown-menu {
+  height: 150px;
+  width: 100%;
+  position: fixed;
+  top: 125px;
+  background-color: #444445;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border-top: 2px solid white;
+
+}
+
 .body-component {
   height: calc(100vh - 125px);
   background-color: white;
@@ -31,10 +44,68 @@
   height: 200px;
   width: 200px;
   background-color: green;
+  animation-name: rotate;
+  animation-duration: 5s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
 }
 
 .scale-box {
   height: 100px;
   width: 100px;
   background-color: blue;
+  transition: 1s;
+}
+
+.scale-box:hover{
+  transform: scale(1.2)
+  /* height and width can also be used */
+}
+
+.desktop-links {
+  display: none;
+}
+
+@media(min-width: 500px) {
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+    box-sizing: border-box;
+    /* padding: 0px 25px; */
+  }
+
+  .header-logo{
+    margin-left: 25px;
+  }
+
+  .dropdown-button{
+    margin-right: 25px;
+  }
+}
+
+@media(min-width: 1000px) {
+  .dropdown-button {
+    display: none;
+
+  }
+
+  .dropdown-menu {
+    display: none;
+  }
+
+  .desktop-links {
+    width: 25%;
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+@keyframes rotate{
+  from {
+    transform: rotate(0deg)
+  }
+  to {
+    transform: rotate(360deg)
+    /* specify negative degree for counter-clockwise rotation */
+  }
 }
